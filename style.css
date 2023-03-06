@@ -1,0 +1,319 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(13, 99, 133);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 890px;
+    height: 645px;
+    border: 3px solid rgb(232, 232, 232);
+    background-color: rgb(30, 30, 30);
+    border-radius: 40px;
+    box-shadow: 4px 6px 12px -3px black, -4px -6px 12px -3px rgb(181, 181, 181);
+}
+
+.ipad input {
+    visibility: hidden;
+    display: none;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.buttons label {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    opacity: .5;
+    transition: .6s;
+    cursor: pointer;
+
+}
+
+.ipad input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.ipad input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.ipad input:nth-child(3):checked ~ .buttons label:nth-child(3)
+{
+    opacity: 1;
+    width: 30px;
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: .5s;
+    inset: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url("./image/bg.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.content .lockScreen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url("./image/lock.jpg");
+    background-position: center;
+    background-size: cover;
+    top: 0%;
+    bottom: 0%;
+    z-index: 1000;
+    opacity: 1;
+    transition: .7s ease;
+}
+
+.container:hover .lockScreen {
+    top: -100%;
+    bottom: 100%;
+    opacity: .4;
+}
+
+.content .box {
+    position: absolute;
+    user-select: none;
+    height: 100%;
+    transition: all .7s ease;
+}
+
+.content .homepage {
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+   padding: 20px 60px;
+}
+
+
+.content .applibrarypage {
+    left: 100%;
+    right: -100%;
+    z-index: 10;
+    opacity: 1;
+}
+
+.ipad input:nth-child(1):checked ~ .content .homepage {
+    left: 0;
+}
+
+.ipad input:nth-child(1) ~ .content .homepage {
+    left: -100%;
+    right: 100%;
+}
+
+.ipad input:nth-child(2):checked ~ .content .applibrarypage {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+
+
+/* styling of all icon and wedget */
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homepage .top_wedget_seciton {
+    display: flex;
+    justify-content: center;
+    height: 30%;
+    gap: 40px;
+    width: 100%;
+}
+
+.homepage .top_wedget_seciton .left_top_wedget_section .watch_notes {
+    display: flex;
+    gap: 20px;
+}
+
+.homepage .top_wedget_seciton .left_top_wedget_section {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.homepage .top_wedget_seciton .left_top_wedget_section .watch_notes img {
+    border-radius: 25px;
+    width: 86px;
+    transition: all .6s ease;
+}
+.homepage .top_wedget_seciton .left_top_wedget_section .watch_notes img:hover {
+   transform: scale(1.1);
+   opacity: 1;
+}
+
+
+.homepage .top_wedget_seciton .left_top_wedget_section .wather img {
+    width: 194px;
+    height: 80px;
+    border-radius: 25px;
+    transition: all .6s ease;
+}
+.homepage .top_wedget_seciton .left_top_wedget_section .wather img:hover {
+    transform: scale(1.1);
+}
+
+
+.homepage .top_wedget_seciton img[alt="dogwidgets"], img[alt="onefootwidgets"] {
+width: 200px;
+    height: 186px;
+    border-radius: 20px;
+    transition: all .6s ease;
+
+}
+
+.homepage .top_wedget_seciton img[alt="dogwidgets"]:hover, img[alt="onefootwidgets"]:hover {
+    transform: scale(1.1);
+    
+}
+
+.homepage .middle_app {
+    height: 34%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: 68px;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.middle_app img {
+    width: 44px;
+    border-radius: 11px;
+}
+
+.middle_app div p {
+    font-weight: 100;
+    font-size: .75rem;
+    text-align: center;
+}
+
+.middle_app div {
+    transition:all .3s ease;
+}
+
+.middle_app div:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.bottom_main_app {
+    background-color: #ffffff8b;
+    padding: 15px 20px;
+    display: flex;
+    gap: 10px;  
+    border-radius: 25px;
+}
+
+.bottom_main_app img {
+    width: 45px;
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.bottom_main_app img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/*------------------- second page ------------------- */
+
+
+.applibrarypage {
+    padding: 15px 120px;
+}
+
+.applibraryImage img {
+    width: 320px;
+    height: auto;
+    margin: 0 24%;
+    border-radius: 15px;
+    margin-top: 17px;
+    transition: all .4s ease;
+}
+.applibraryImage img:hover {
+    transform: translateX(-50%);
+    transform: scale(1.1);
+}
+
+.applibrarypage .middle_apps {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.applibrarypage .middle_apps div div {
+    width: 128px;
+    height: 125px;
+    flex-wrap: wrap;
+    background-color: #ffffff96;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.applibrarypage .middle_apps .apps p {
+    color: #fff;
+    font-weight: 100;
+    font-size: .8rem;
+    text-align: center;
+}
+
+.applibrarypage .middle_apps .apps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.applibrarypage .middle_apps .apps {
+    margin: 10px;
+    transition: all .4s ease;
+}
+.applibrarypage .middle_apps .apps.apps:hover {
+    margin: 10px;
+    transform: scale(1.1);
+}
+
+.applibrarypage .middle_apps img {
+    width: 47px;
+    margin: 0 2px;
+    border-radius: 18px;
+    transition: all .4s ease;
+}
+
+.applibrarypage .middle_apps img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
